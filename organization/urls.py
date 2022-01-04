@@ -5,3 +5,4 @@ from . import views
 router = DefaultRouter()
 router.register('regions', views.RegionViewSet)
 router.register('countries', views.CountryViewSet)
+router.register('employees', views.EmployeeViewSet)
