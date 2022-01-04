@@ -1,5 +1,3 @@
-import React, {Component} from 'react';
-import logo from './logo.svg';
 import './App.css';
 import {
   Routes,
@@ -7,7 +5,9 @@ import {
 } from 'react-router-dom'
 import Home from './components/Home';
 import Regions from './components/Regions';
+import Countries from './components/Countries';
 import Navigation from './components/Navigation'
+import { Container } from 'reactstrap';
 
 
 function App() {
@@ -15,10 +15,13 @@ function App() {
     <div className="App">
       <Navigation/>
       <div className="App-intro">
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="regions" element={<Regions />} />
-      </Routes>
+        <Container fluid>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/regions" element={<Regions />} />
+            <Route path="/countries" element={<Countries />} />
+          </Routes>
+        </Container>
       </div>
     </div>
   );

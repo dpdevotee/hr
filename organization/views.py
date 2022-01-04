@@ -20,5 +20,5 @@ class CountrySerializer(serializers.ModelSerializer):
 
 
 class CountryViewSet(viewsets.ModelViewSet):
-    queryset = models.Country.objects.all()
+    queryset = models.Country.objects.all().order_by('country_id')
     serializer_class = CountrySerializer

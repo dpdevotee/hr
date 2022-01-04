@@ -30,6 +30,9 @@ class Navigation extends Component <any, any>{
                 <NavItem>
                   <NavLink href="/regions">Regions</NavLink>
                 </NavItem>
+                <NavItem>
+                  <NavLink href="/countries">Countries</NavLink>
+                </NavItem>
               </Nav>
             </Collapse>
           </Navbar>
