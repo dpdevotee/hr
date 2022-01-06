@@ -6,7 +6,7 @@ interface TableRowProps {
 
 function TableRow(props: TableRowProps) {
   const cells = props.columns.map(
-    (col) => { return <td>{props.data[col as keyof typeof props.data]}</td> }
+    (col, index) => <td key={index}>{props.data[col as keyof typeof props.data]}</td>
   );
   return (
     <tr>
@@ -24,15 +24,13 @@ interface TableProps {
 
 function Table(props: TableProps) {
   const tableHeader = props.headers.map(
-    (item) => { return <th>{item}</th> }
+    (item, index) => { return <th key={index}>{item}</th> }
   );
   const tableRows = props.data.map(
-    (row) => {
-      return <TableRow columns={props.columns}
-        data={row}
-        key={row[props.keyName as keyof typeof row]}
-      />
-    }
+    (row) => <TableRow columns={props.columns}
+      data={row}
+      key={row[props.keyName as keyof typeof row]}
+    />
   );
 
   return (
