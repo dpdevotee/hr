@@ -1,4 +1,5 @@
 from rest_framework import viewsets, serializers, pagination
+
 from . import models
 
 
@@ -19,9 +20,14 @@ class CountrySerializer(serializers.ModelSerializer):
         fields = ['country_id', 'country_name', 'region']
 
 
+class CountryPagination(pagination.CursorPagination):
+    ordering = 'country_id'
+
+
 class CountryViewSet(viewsets.ModelViewSet):
     queryset = models.Country.objects.all().order_by('country_id')
     serializer_class = CountrySerializer
+    pagination_class = CountryPagination
 
 
 class EmployeeSerializer(serializers.ModelSerializer):
