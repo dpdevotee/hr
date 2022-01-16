@@ -1,4 +1,5 @@
 from rest_framework import viewsets, serializers, pagination
+from rest_framework.permissions import DjangoModelPermissionsOrAnonReadOnly
 
 from . import models
 
@@ -12,6 +13,7 @@ class RegionSerializer(serializers.ModelSerializer):
 class RegionViewSet(viewsets.ModelViewSet):
     queryset = models.Region.objects.all().order_by('region_id')
     serializer_class = RegionSerializer
+    permission_classes = [DjangoModelPermissionsOrAnonReadOnly]
 
 
 class CountrySerializer(serializers.ModelSerializer):
@@ -28,6 +30,7 @@ class CountryViewSet(viewsets.ModelViewSet):
     queryset = models.Country.objects.all().order_by('country_id')
     serializer_class = CountrySerializer
     pagination_class = CountryPagination
+    permission_classes = [DjangoModelPermissionsOrAnonReadOnly]
 
 
 class EmployeeSerializer(serializers.ModelSerializer):
@@ -43,3 +46,4 @@ class EmployeePagination(pagination.CursorPagination):
 class EmployeeViewSet(viewsets.ModelViewSet):
     queryset = models.Employee.objects.all().order_by('employee_id')
     serializer_class = EmployeeSerializer
+    permission_classes = [DjangoModelPermissionsOrAnonReadOnly]
