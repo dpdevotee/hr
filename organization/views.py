@@ -43,4 +43,3 @@ class EmployeePagination(pagination.CursorPagination):
 class EmployeeViewSet(viewsets.ModelViewSet):
     queryset = models.Employee.objects.all().order_by('employee_id')
     serializer_class = EmployeeSerializer
-#    pagination_class = EmployeePagination
