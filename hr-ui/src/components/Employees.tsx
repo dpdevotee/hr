@@ -22,7 +22,7 @@ class Employees extends Component<any, any>{
   }
 
   fetchPage(page: number) {
-    const link = '/api/employees?page=' + page.toString(10);
+    const link = '/api/employees/?page=' + page.toString(10);
     this.setState({ isFetching: true });
     fetch(`${baseApiURL}${link}`)
       .then(response => { return response.json() })
