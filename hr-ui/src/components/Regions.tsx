@@ -1,4 +1,5 @@
 import {Component} from 'react';
+import {baseApiURL} from "../common";
 
 
 class Regions extends Component <any, any>{
@@ -12,7 +13,7 @@ class Regions extends Component <any, any>{
   
   fetchRegions() {
     this.setState({isFetching: true});
-    fetch('http://localhost:8000/api/regions/')
+    fetch(`${baseApiURL}/api/regions/`)
       .then(response => {return response.json()})
       .then(result => {
         this.setState({regions: result.results, isFetching: false});

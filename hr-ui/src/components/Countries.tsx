@@ -1,5 +1,6 @@
-import { Component } from 'react';
+import {Component} from 'react';
 import CursorPagination from './CursorPagination';
+import {baseApiURL} from "../common";
 
 
 class Countries extends Component<any, any>{
@@ -35,7 +36,7 @@ class Countries extends Component<any, any>{
   }
 
   componentDidMount() {
-    this.fetchCountries('http://localhost:8000/api/countries/');
+    this.fetchCountries(`${baseApiURL}/api/countries/`);
   }
 
   loadPrevious() {

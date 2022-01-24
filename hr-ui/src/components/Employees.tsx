@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import PageNumberPagination from './PageNumberPagination';
 import Table from './Table';
+import {baseApiURL} from "../common";
 
 
 class Employees extends Component<any, any>{
@@ -21,9 +22,9 @@ class Employees extends Component<any, any>{
   }
 
   fetchPage(page: number) {
-    const link = 'http://localhost:8000/api/employees?page=' + page.toString(10);
+    const link = '/api/employees?page=' + page.toString(10);
     this.setState({ isFetching: true });
-    fetch(link)
+    fetch(`${baseApiURL}${link}`)
       .then(response => { return response.json() })
       .then(result => {
         this.setState({
